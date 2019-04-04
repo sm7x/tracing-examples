@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title WordExplorer
+        link(rel='stylesheet', type='text/css', href='/css/style.css')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+    body
+        h2 Welcome to  WordExplorer
+        .container
+            fieldset
+                form(action = '/word_explorer/explore', method = 'POST')
+                    input.field-input(name = 'word', type=text, placeholder = 'Enter a word', required='')
+                    input.button(type = 'submit', value = 'Explore')
+                    if explored
+                        p!= explored
