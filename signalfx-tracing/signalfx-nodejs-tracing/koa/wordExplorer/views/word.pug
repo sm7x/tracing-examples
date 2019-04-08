@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title WordExplorer
+        link(rel='stylesheet', type='text/css', href='/css/style.css')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+    body
+        h2 Welcome to  WordExplorer
+        .container
+            fieldset
+                form(action = '/wordExplorer/explore', method = 'POST')
+                if explored
+                    p!= explored
+                    form(action = '/wordExplorer/add', method = 'POST')
+                        input.field-input(name = 'usage', type=text, placeholder = 'Enter example usage')
+                        input.button(type = 'submit', value = 'Add word')
+                        if response
+                            p!= response
+                    p!= error
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+                a(href='/wordExplorer')
+                    button#add(
+                      type='submit'
+                      style='width:200px; height: 30px; background-color: white; font-size: 15px;'
+                    ) Home
+

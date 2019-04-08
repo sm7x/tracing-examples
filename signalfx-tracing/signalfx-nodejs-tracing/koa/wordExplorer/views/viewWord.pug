@@ -1,0 +1,77 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title WordExplorer server include
+        link(rel='stylesheet', type='text/css', href='/css/style.css')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+    body
+        h2 WordExplorer: Word of the day!
+        .container
+            .ow
+                fieldset
+                    if response
+                        h2!= response.word
+                        |
+                        |
+                        |
+                        p!= response.meaning
+                        |
+                        |
+                        h4 Synonyms:
+                        p!= response.synonyms
+                        |
+                        |
+                        |
+                        |
+                        h4 Example usage
+                        p!= response.usage_note
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                    form(action = `/wordExplorer/words/${response.word}`, method = 'PUT')
+                        input.field-input(name = 'usage', type=text, placeholder = 'Enter new example usage')
+                        button#update(
+                        type='submit'
+                        style='width:200px; height: 30px; background-color: white; font-size: 15px;'
+                        ) Update example usage
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |
+            .container
+                fieldset
+                    button#delete(
+                     - function deleteWord(){
+                        console.log('Almost there')
+                        }
+                    type='submit',
+                    style='width:200px; height: 30px; background-color: white; font-size: 15px;'
+                    onclick= `deleteWord()`
+                    ) Delete word
+                    |
+                    |
+                    |
+                    |
+            .container
+                fieldset
+                    a(href='/wordExplorer')
+                        button#home(
+                          type='button'
+                          style='width:200px; height: 30px; background-color: white; font-size: 15px;'
+                        ) Return home
+
