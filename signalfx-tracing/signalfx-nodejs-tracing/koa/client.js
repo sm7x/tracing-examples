@@ -18,80 +18,42 @@ yargs
   .scriptName('wordExplorer')
   .command('open', 'Begin exploration!', {}, (argv) => {
     client.openExplorer().then((response) => {
-    // client.exploreWord(argv.word).then((response) => {
-        console.log('called')
-        // console.log(argv.word);
+        console.log(response)
         })
+    })
+
+
+    .command('add [usage]', 'Add explored word to vocabulary list.', {}, (argv) => {
+          client.addWord(argv.usage).then((response) => {
+          console.log(response)
+          })
         })
 
-//      }).catch((e) => console.error(e))
-//    }).catch((e) => console.error(e))
-//// })
-
-  .command('add [usage]', 'Add explored word to vocabulary list.', {}, (argv) => {
-//    getId().then((id) => {
-      console.log(argv.usage)
-
-      client.addWord(argv.usage).then((response) => {}
-
-//      }).catch((e) => console.error(e))
-//    }).catch((e) => console.error(e))
-  )
-  })
 
 
     .command('delete [word]', 'Delete word.', {}, (argv) => {
-      //    getId().then((id) => {
-            client.deleteWord(argv.word).then((response) => {}
-
-      //      }).catch((e) => console.error(e))
-      //    }).catch((e) => console.error(e))
-        )
+            client.deleteWord(argv.word).then((response) => {})
         })
 
 
-.command('explore [word]', 'Explore a word', {}, (argv) => {
-  client.exploreWord(argv.word).then((response) => {
-      // console.log(argv.word);
-      })
-      })
-
+    .command('explore [word]', 'Explore a word', {}, (argv) => {
+            client.exploreWord(argv.word).then((response) => {})
+       })
 
 
     .command('list', 'Show vocabulary list.', {}, (argv) => {
-  //    getId().then((id) => {
-        client.listWords().then((response) => {
-          console.log(response)
-            }
-
-  //      }).catch((e) => console.error(e))
-  //    }).catch((e) => console.error(e))
-    )
+            client.listWords().then((response) => {})
     })
 
 
 
     .command('retrieve [word]', 'Retrieve word entry from your vocabulary list.', {}, (argv) => {
-      //    getId().then((id) => {
-            client.viewWord(argv.word).then((response) => {}
-
-      //      }).catch((e) => console.error(e))
-      //    }).catch((e) => console.error(e))
-        )
+            client.viewWord(argv.word).then((response) => {})
         })
 
 
     .command('update [word] [usage]', 'Update word.', {}, (argv) => {
-      //    getId().then((id) => {
-            client.updateWord(argv.word, argv.usage).then((response) => {}
-
-      //      }).catch((e) => console.error(e))
-      //    }).catch((e) => console.error(e))
-        )
+            client.updateWord(argv.word, argv.usage).then((response) => {})
         })
 
-
-
-
-
-  .help().argv
+    .help().argv

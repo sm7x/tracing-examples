@@ -8,7 +8,6 @@ const Word = require('./models/words');
 const wordExplorerUrl = `${serverUrl}/wordExplorer`
 
 function addWord(usage){
-    console.log('Client called', usage);
     return new Promise((resolve, reject) => {
         const req = http.request(`${wordExplorerUrl}/add`, { method: 'POST' }, (res) => {
 //          resolveData(res, resolve)
@@ -34,7 +33,6 @@ function deleteWord(word){
 
 
 function exploreWord(word){
-    console.log(`Client called '${word}'`);
     return new Promise((resolve, reject) => {
         const req = http.request(`${wordExplorerUrl}/explore/`, { method: 'POST' }, (res) => {
 //          resolveData(res, resolve)
