@@ -21,19 +21,12 @@ yargs
     // client.exploreWord(argv.word).then((response) => {
         console.log('called')
         // console.log(argv.word);
-
         })
         })
 
 //      }).catch((e) => console.error(e))
 //    }).catch((e) => console.error(e))
 //// })
-
-.command('explore [word]', 'Explore a word', {}, (argv) => {
-  client.exploreWord(argv.word).then((response) => {
-      // console.log(argv.word);
-      })
-      })
 
   .command('add [usage]', 'Add explored word to vocabulary list.', {}, (argv) => {
 //    getId().then((id) => {
@@ -45,6 +38,24 @@ yargs
 //    }).catch((e) => console.error(e))
   )
   })
+
+
+    .command('delete [word]', 'Delete word.', {}, (argv) => {
+      //    getId().then((id) => {
+            client.deleteWord(argv.word).then((response) => {}
+
+      //      }).catch((e) => console.error(e))
+      //    }).catch((e) => console.error(e))
+        )
+        })
+
+
+.command('explore [word]', 'Explore a word', {}, (argv) => {
+  client.exploreWord(argv.word).then((response) => {
+      // console.log(argv.word);
+      })
+      })
+
 
 
     .command('list', 'Show vocabulary list.', {}, (argv) => {
@@ -60,9 +71,9 @@ yargs
 
 
 
-    .command('delete [word]', 'Delete word.', {}, (argv) => {
+    .command('retrieve [word]', 'Retrieve word entry from your vocabulary list.', {}, (argv) => {
       //    getId().then((id) => {
-            client.deleteWord(argv.word).then((response) => {}
+            client.viewWord(argv.word).then((response) => {}
 
       //      }).catch((e) => console.error(e))
       //    }).catch((e) => console.error(e))
@@ -81,15 +92,6 @@ yargs
 
 
 
-
-    .command('retrieve [word]', 'Retrieve word entry from your vocabulary list.', {}, (argv) => {
-      //    getId().then((id) => {
-            client.viewWord(argv.word).then((response) => {}
-
-      //      }).catch((e) => console.error(e))
-      //    }).catch((e) => console.error(e))
-        )
-        })
 
 
   .help().argv

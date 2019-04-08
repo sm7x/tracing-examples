@@ -85,18 +85,22 @@ async function index(ctx){
 
 
 async function listWords(ctx){
+    const span = tracer.scope().active()
+    span.setTag('list_word', 'True')
     ctx.body = await Word.find();
     ctx.render('viewWords', response=ctx.body);
     }
 
 
 async function updateUsage(ctx) {
-    console.log("Update usage called")
-    let idQuery = {"word": ctx.params.word};
+//    console.log("Update usage called")
+    const span = tracer.scope().active()
+    let wordQuery = {"word": ctx.params.word};
+    span.setTag('updated_word', wordQuery.word)
     let usage_note = ctx.request.body.usage;
     console.log(usage_note)
-    await Word.findOneAndUpdate(idQuery, {$set: {usage_note}})
-    retrieve_model = await Word.findOne(idQuery)
+    await Word.findOneAndUpdate(wordQuery, {$set: {usage_note}})
+    retrieve_model = await Word.findOne(wordQuery)
     ctx.render('viewWord', {response: retrieve_model, error: null});
     console.log(retrieve_model.usage_note)
     }
