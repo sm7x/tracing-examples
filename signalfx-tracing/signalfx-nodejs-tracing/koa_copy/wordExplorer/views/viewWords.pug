@@ -1,0 +1,15 @@
+extends ./layout.pug
+
+block content
+    h2 WordExplorer: Vocab List
+    .container
+        fieldset
+            if response
+                for word in response
+                    a(href=`/wordExplorer/words/${word.word}`)
+                        p= word.word
+    a(href='/wordExplorer')
+        button#home(
+          type='submit'
+          style='width:25%; height: 30px; background-color: white; font-size: 15px;'
+        ) Home

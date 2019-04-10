@@ -1,0 +1,33 @@
+{
+  "name": "koajs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "SIGNALFX_TRACING_DEBUG=true SIGNALFX_SERVICE_NAME=wordExplorerServer nodemon ./server.js",
+    "client": "SIGNALFX_SERVICE_NAME=wordExplorerClient node ./client.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-http-request": "^2.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.4.22",
+    "node-wordnet": "^0.1.12",
+    "signalfx-tracing": "0.0.4",
+    "uuid": "^3.3.2",
+    "wndb-with-exceptions": "^3.0.2",
+    "yargs": "^13.2.2"
+  }
+}

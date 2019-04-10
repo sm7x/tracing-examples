@@ -1,0 +1,26 @@
+extends ./layout.pug
+
+block content
+    h2 WordExplorer | Explored word
+    .container
+        fieldset
+            form(action = '/wordExplorer/explore', method = 'POST')
+            if explored
+                p!= explored
+                form(action = '/wordExplorer/add', method = 'POST')
+                    input.field-input(name = 'usage', type=text, placeholder = 'Personalise example usage')
+                    input.button(type = 'submit', value = 'Add word')
+                p!= error
+            |
+            |
+            |
+            |
+            |
+            |
+            |
+            a(href='/wordExplorer')
+                button#add(
+                  type='submit'
+                  style='width:200px; height: 30px; background-color: white; font-size: 15px;'
+                ) Home
+

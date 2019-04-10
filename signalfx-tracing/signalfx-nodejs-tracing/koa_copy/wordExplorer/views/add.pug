@@ -1,0 +1,16 @@
+extends ./layout.pug
+
+block content
+    h2 Welcome to WordExplorer
+    .container
+        fieldset
+            form(action = '/wordExplorer/add', method = 'POST')
+            if response
+                p!= response
+            if error
+                p!= error
+            a(href='/wordExplorer')
+                button#home(
+                  type='submit'
+                  style='width: 200px; height: 30px; background-color: white; font-size: 15px;'
+                ) Home

@@ -8,8 +8,6 @@ const uuid = require('uuid/v4');
 const { Explorer} = require('./explorer')
 
 
-
-
 const apiKey = process.env.DICTIONARY_API_KEY;
 const router = new Router();
 

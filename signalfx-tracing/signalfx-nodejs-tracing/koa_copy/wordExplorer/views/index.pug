@@ -1,0 +1,14 @@
+extends ./layout.pug
+
+block content
+    h2 Welcome to  WordExplorer
+    .container
+        fieldset
+            form(action = '/wordExplorer/explore', method = 'POST')
+                input.field-input(name = 'word', type=text, placeholder = 'Enter a word', required='')
+                input.button(type = 'submit', value = 'Explore')
+    a(href='/wordExplorer/words')
+        button#home(
+          type='button'
+          style='width:200px; height: 30px; background-color: white; font-size: 15px;'
+        ) View Vocab
