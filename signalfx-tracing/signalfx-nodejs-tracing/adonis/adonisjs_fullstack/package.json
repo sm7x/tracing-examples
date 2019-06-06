@@ -1,0 +1,19 @@
+{
+  "name": "adonisjs_fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "postgres": "docker run --name pg_server -e POSTGRES_PASSWORD=password -e POSTGRES_DB=pg_db -d -p 5432:5432 postgres",
+    "client": "SIGNALFX_TRACING_DEBUG=true SIGNALFX_SERVICE_NAME=adonisClient node client.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@adonisjs/cli": "^4.0.12",
+    "signalfx-tracing": "latest",
+    "yargs": "^13.2.4"
+  }
+}
