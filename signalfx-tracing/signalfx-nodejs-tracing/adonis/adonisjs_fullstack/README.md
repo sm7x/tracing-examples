@@ -15,7 +15,7 @@ In one terminal (which could become the 'server terminal') run:
 ```
 cd ContactKeeper
 npm install
-../node_modules/.bin/adonis migration:run
+../../node_modules/.bin/adonis migration:run
 npm start
 
 ```
