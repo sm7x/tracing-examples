@@ -5,7 +5,6 @@ import io.vertx.core.json.Json
 import io.vertx.ext.web.Router
 
 fun main(args: Array<String>) {
-    println("Hello, World")
 
     val vertx = Vertx.vertx()
     val httpServer = vertx.createHttpServer()
@@ -32,6 +31,19 @@ fun main(args: Array<String>) {
                 response.putHeader("content-type", "application/json")
                         .setChunked(true)
                         .write(Json.encodePrettily(ResponseObj("Hello, " + name)))
+                        .end()
+            })
+
+    router.get("/json/id/:id")
+            .handler({
+                routingContext ->
+
+                val request = routingContext.request()
+                val id = request.getParam("id")
+                val response = routingContext.response()
+                response.putHeader("content-type", "application/json")
+                        .setChunked(true)
+                        .write(Json.encodePrettily(ResponseObj("Yo! Number, " + id)))
                         .end()
             })
 
